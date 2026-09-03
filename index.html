@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charity Kabui | Data & GIS Analyst</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(248, 247, 244, 0.95);
+            border-bottom: 1px solid #e5e2dc;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #234f3e;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #234f3e;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            color: #6b7d72;
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1.02;
+            color: #183b2e;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: normal;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #234f3e;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #183b2e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #234f3e;
+            color: #234f3e;
+        }
+
+        .btn-secondary:hover {
+            background: #e8eee9;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-label {
+            color: #6b7d72;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            color: #183b2e;
+            margin-bottom: 35px;
+        }
+
+        .about {
+            background: #ffffff;
+        }
+
+        .about-text {
+            max-width: 800px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid #e7e4de;
+        }
+
+        .skill-card h3 {
+            color: #234f3e;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #ffffff;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #f8f7f4;
+            border: 1px solid #e4e1db;
+            border-radius: 16px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .project-number {
+            color: #87978e;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .project-card h3 {
+            color: #234f3e;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #234f3e;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* EXPERIENCE */
+        .experience-item {
+            max-width: 850px;
+            border-left: 2px solid #cfd8d2;
+            padding-left: 25px;
+            margin-bottom: 35px;
+        }
+
+        .experience-item h3 {
+            color: #234f3e;
+            font-size: 21px;
+        }
+
+        .experience-item .company {
+            color: #777;
+            margin: 5px 0 12px;
+            font-size: 14px;
+        }
+
+        .experience-item p {
+            color: #666;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #183b2e;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-label {
+            color: #b9c9c0;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #d9e1dc;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            border: 1px solid #9aafa3;
+            padding: 11px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-links a:hover {
+            background: #ffffff;
+            color: #183b2e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #102b21;
+            color: #aebdb5;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 70px 6%;
+                min-height: 80vh;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">CK.</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+
+            <div class="eyebrow">Data • GIS • Analytics</div>
+
+            <h1>Charity Kabui</h1>
+
+            <h2>Data Analyst & Geospatial Data Professional</h2>
+
+            <p>
+                I transform data into meaningful insights, visualizations,
+                and location-based solutions that support better decisions.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Let's Connect
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="section-label">01 — About Me</div>
+
+        <h2 class="section-title">Turning data into insight.</h2>
+
+        <p class="about-text">
+            I am a Geomatics Engineering and Geospatial Information Systems
+            graduate with a growing focus on data analytics and data science.
+            I enjoy working with data to uncover patterns, communicate insights
+            through visualizations, and solve real-world problems using both
+            analytical and geospatial approaches.
+        </p>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-label">02 — Skills</div>
+
+        <h2 class="section-title">What I work with</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <h3>Data Analytics</h3>
+                <p>
+                    Excel, Power BI, Tableau, data cleaning,
+                    exploratory data analysis and reporting.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Programming</h3>
+                <p>
+                    Python, Pandas, NumPy, GeoPandas,
+                    SQL and data analysis workflows.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <h3>GIS & Spatial Data</h3>
+                <p>
+                    ArcGIS, QGIS, PostGIS, GeoJSON,
+                    spatial analysis and mapping.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Data Science</h3>
+                <p>
+                    Machine learning fundamentals, predictive
+                    modelling and data-driven problem solving.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+
+        <div class="section-label">03 — Selected Work</div>
+
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-number">01 / DATA ANALYTICS</div>
+
+                <h3>Exploratory Insurance Data Analysis</h3>
+
+                <p>
+                    An exploratory analysis project focused on understanding
+                    insurance data, identifying patterns and communicating
+                    insights through data analysis and visualization.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-number">02 / GIS & SPATIAL ANALYSIS</div>
+
+                <h3>Community Hotspot Analysis</h3>
+
+                <p>
+                    A geospatial analysis project exploring business and
+                    community patterns using mapping, spatial indexing and
+                    hotspot analysis.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-number">03 / MACHINE LEARNING</div>
+
+                <h3>Mama Mboga Credit Score Model</h3>
+
+                <p>
+                    A data science project exploring how alternative data
+                    can be used to support credit scoring and financial
+                    decision-making.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-number">04 / TECHNOLOGY</div>
+
+                <h3>WasteLink</h3>
+
+                <p>
+                    A technology concept focused on connecting waste
+                    management needs with data-driven solutions.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-number">05 / AI & DATA</div>
+
+                <h3>Aquaguard AI</h3>
+
+                <p>
+                    An AI-focused project exploring how data and technology
+                    can support smarter water-related decision making.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+        <div class="section-label">04 — Experience</div>
+
+        <h2 class="section-title">Where I've worked</h2>
+
+
+        <div class="experience-item">
+
+            <h3>Data Intern</h3>
+
+            <div class="company">
+                Govan / OurCode
+            </div>
+
+            <p>
+                Worked on data and geospatial analysis, including mapping,
+                spatial insights and hotspot analysis to support community
+                and business visibility.
+            </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <h3>Assistant Field Officer</h3>
+
+            <div class="company">
+                KEPSA
+            </div>
+
+            <p>
+                Conducted field verification and collected business-related
+                information, contributing to accurate and reliable datasets.
+            </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <h3>Land Surveyor</h3>
+
+            <div class="company">
+                Ubuntu Geodigital Technologies
+            </div>
+
+            <p>
+                Applied surveying and geospatial techniques in land-related
+                projects and field data collection.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="section-label">05 — Contact</div>
+
+        <h2 class="section-title">Let's connect.</h2>
+
+        <p>
+            Interested in working together, discussing a data project,
+            or simply connecting? I'd love to hear from you.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:YOUR_EMAIL@example.com">
+                Email Me
+            </a>
+
+            <a href="https://github.com/kabui-charity" target="_blank">
+                GitHub
+            </a>
+
+            <a href="YOUR_LINKEDIN_URL" target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Charity Kabui · Built with HTML & CSS
+    </footer>
+
+</body>
+</html>
