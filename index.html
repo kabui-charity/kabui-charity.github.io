@@ -1,12 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Kabui | Data & GIS Analyst</title>
+
+    <title>Charity Kabui | Data Analyst & GIS Professional</title>
+
+    <meta name="description"
+        content="Portfolio of Charity Kabui, a Data Analyst and GIS professional focused on data analytics, geospatial analysis and data science.">
 
     <style>
+
+        /* =========================
+           RESET & GENERAL
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -19,52 +27,98 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f8f7f4;
-            color: #222;
-            line-height: 1.6;
+            background: #faf9f6;
+            color: #202421;
+            line-height: 1.7;
         }
 
-        /* NAVIGATION */
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         nav {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(248, 247, 244, 0.95);
-            border-bottom: 1px solid #e5e2dc;
-            padding: 18px 8%;
+
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #e8e5df;
+        }
+
+        .nav-container {
+            min-height: 75px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #234f3e;
+            font-size: 25px;
+            font-weight: 700;
+            color: #1d4d3b;
+            letter-spacing: -1px;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 30px;
+            list-style: none;
         }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
+        .nav-links a {
+            color: #444;
             font-size: 14px;
+            transition: 0.3s;
         }
 
-        nav a:hover {
-            color: #234f3e;
+        .nav-links a:hover {
+            color: #1d4d3b;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
+
         .hero {
             min-height: 88vh;
+
             display: flex;
             align-items: center;
-            padding: 80px 8%;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background: #e7eee9;
+
+            right: -150px;
+            top: 70px;
+
+            z-index: -1;
         }
 
         .hero-content {
@@ -72,35 +126,52 @@
         }
 
         .eyebrow {
-            color: #6b7d72;
-            font-size: 15px;
+            display: inline-block;
+
+            color: #557265;
+
+            font-size: 13px;
+            font-weight: 600;
+
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 18px;
+
+            margin-bottom: 22px;
         }
 
-        h1 {
-            font-size: clamp(48px, 8vw, 88px);
-            line-height: 1.02;
-            color: #183b2e;
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 100px);
+
+            line-height: 0.95;
+
+            letter-spacing: -5px;
+
+            color: #173d2f;
+
             margin-bottom: 25px;
         }
 
         .hero h2 {
-            font-size: clamp(22px, 3vw, 34px);
-            font-weight: normal;
-            color: #555;
+            font-size: clamp(24px, 4vw, 40px);
+
+            font-weight: 400;
+
+            color: #3e4944;
+
             margin-bottom: 25px;
         }
 
-        .hero p {
-            max-width: 650px;
+        .hero-description {
+            max-width: 680px;
+
+            color: #686e6a;
+
             font-size: 18px;
-            color: #666;
+
             margin-bottom: 35px;
         }
 
-        .buttons {
+        .hero-buttons {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
@@ -108,532 +179,1305 @@
 
         .btn {
             display: inline-block;
-            padding: 13px 24px;
+
+            padding: 13px 25px;
+
             border-radius: 30px;
-            text-decoration: none;
+
             font-size: 14px;
+            font-weight: 600;
+
             transition: 0.3s;
         }
 
         .btn-primary {
-            background: #234f3e;
+            background: #1d4d3b;
             color: white;
         }
 
         .btn-primary:hover {
-            background: #183b2e;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            background: #14372a;
         }
 
-        .btn-secondary {
-            border: 1px solid #234f3e;
-            color: #234f3e;
+        .btn-outline {
+            border: 1px solid #1d4d3b;
+            color: #1d4d3b;
         }
 
-        .btn-secondary:hover {
-            background: #e8eee9;
+        .btn-outline:hover {
+            background: #e7eee9;
         }
 
-        /* GENERAL */
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
         section {
-            padding: 90px 8%;
+            padding: 100px 0;
         }
 
-        .section-label {
-            color: #6b7d72;
-            text-transform: uppercase;
+        .section-number {
+            color: #789085;
+
+            font-size: 12px;
+
             letter-spacing: 2px;
-            font-size: 13px;
-            margin-bottom: 10px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 40px;
-            color: #183b2e;
-            margin-bottom: 35px;
+            font-size: 42px;
+
+            line-height: 1.1;
+
+            color: #173d2f;
+
+            margin-bottom: 40px;
         }
 
+
+        /* =========================
+           ABOUT
+        ========================= */
+
         .about {
-            background: #ffffff;
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1.5fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .about-intro {
+            font-size: 22px;
+
+            color: #33463e;
         }
 
         .about-text {
-            max-width: 800px;
-            font-size: 18px;
-            color: #555;
+            color: #666;
+
+            font-size: 16px;
+
+            margin-bottom: 18px;
         }
 
-        /* SKILLS */
+        .highlight {
+            color: #1d4d3b;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           SERVICES / SKILLS
+        ========================= */
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
         }
 
         .skill-card {
             background: white;
-            padding: 25px;
-            border-radius: 14px;
-            border: 1px solid #e7e4de;
+
+            border: 1px solid #e6e4de;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .skill-icon {
+            width: 45px;
+            height: 45px;
+
+            border-radius: 12px;
+
+            background: #e7eee9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            font-size: 20px;
         }
 
         .skill-card h3 {
-            color: #234f3e;
+            color: #1d4d3b;
+
+            font-size: 20px;
+
             margin-bottom: 12px;
         }
 
         .skill-card p {
-            color: #666;
+            color: #707570;
+
             font-size: 14px;
         }
 
-        /* PROJECTS */
+
+        /* =========================
+           TOOLS
+        ========================= */
+
+        .tools {
+            margin-top: 35px;
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .tool {
+            background: #eef1ee;
+
+            color: #385548;
+
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
         .projects {
-            background: #ffffff;
+            background: white;
+        }
+
+        .projects-intro {
+            max-width: 700px;
+
+            color: #6b716d;
+
+            margin-bottom: 45px;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+            grid-template-columns: repeat(2, 1fr);
+
             gap: 25px;
         }
 
         .project-card {
-            background: #f8f7f4;
-            border: 1px solid #e4e1db;
-            border-radius: 16px;
-            padding: 28px;
+            border: 1px solid #e4e2dc;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            background: #faf9f6;
+
             transition: 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+            transform: translateY(-6px);
+
+            box-shadow: 0 15px 40px rgba(0,0,0,0.07);
         }
 
-        .project-number {
-            color: #87978e;
-            font-size: 13px;
-            margin-bottom: 18px;
+        .project-category {
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            color: #789085;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
         }
 
         .project-card h3 {
-            color: #234f3e;
-            font-size: 22px;
-            margin-bottom: 12px;
+            color: #1d4d3b;
+
+            font-size: 23px;
+
+            margin-bottom: 13px;
         }
 
         .project-card p {
-            color: #666;
-            font-size: 15px;
-            margin-bottom: 20px;
+            color: #6a6f6b;
+
+            font-size: 14px;
+
+            margin-bottom: 22px;
+        }
+
+        .project-tools {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-bottom: 25px;
+        }
+
+        .project-tool {
+            font-size: 11px;
+
+            padding: 5px 10px;
+
+            border-radius: 15px;
+
+            background: #e7eee9;
+
+            color: #385548;
         }
 
         .project-link {
-            color: #234f3e;
-            text-decoration: none;
-            font-weight: bold;
+            color: #1d4d3b;
+
             font-size: 14px;
+
+            font-weight: 700;
         }
 
-        /* EXPERIENCE */
-        .experience-item {
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .timeline {
             max-width: 850px;
-            border-left: 2px solid #cfd8d2;
-            padding-left: 25px;
-            margin-bottom: 35px;
         }
 
-        .experience-item h3 {
-            color: #234f3e;
+        .experience {
+            position: relative;
+
+            padding-left: 30px;
+
+            margin-bottom: 45px;
+
+            border-left: 2px solid #dce3de;
+        }
+
+        .experience::before {
+            content: "";
+
+            position: absolute;
+
+            left: -6px;
+            top: 4px;
+
+            width: 10px;
+            height: 10px;
+
+            background: #1d4d3b;
+
+            border-radius: 50%;
+        }
+
+        .experience-date {
+            font-size: 12px;
+
+            color: #819087;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 6px;
+        }
+
+        .experience h3 {
+            color: #1d4d3b;
+
             font-size: 21px;
         }
 
-        .experience-item .company {
+        .experience-company {
             color: #777;
-            margin: 5px 0 12px;
+
             font-size: 14px;
+
+            margin-bottom: 12px;
         }
 
-        .experience-item p {
+        .experience p {
             color: #666;
+
+            font-size: 15px;
         }
 
-        /* CONTACT */
+
+        /* =========================
+           CERTIFICATIONS
+        ========================= */
+
+        .certifications {
+            background: white;
+        }
+
+        .cert-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .cert {
+            padding: 22px;
+
+            border: 1px solid #e5e3de;
+
+            border-radius: 14px;
+
+            background: #faf9f6;
+        }
+
+        .cert h3 {
+            color: #1d4d3b;
+
+            font-size: 16px;
+
+            margin-bottom: 5px;
+        }
+
+        .cert p {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
         .contact {
-            background: #183b2e;
-            color: white;
+            background: #173d2f;
+
             text-align: center;
+
+            color: white;
         }
 
-        .contact .section-label {
-            color: #b9c9c0;
+        .contact .section-number {
+            color: #b7c9bf;
         }
 
         .contact .section-title {
             color: white;
+
+            margin-bottom: 20px;
         }
 
-        .contact p {
+        .contact-text {
             max-width: 600px;
-            margin: 0 auto 30px;
-            color: #d9e1dc;
+
+            margin: 0 auto 35px;
+
+            color: #d5dfda;
         }
 
-        .contact-links {
+        .contact-buttons {
             display: flex;
+
             justify-content: center;
-            gap: 15px;
+
             flex-wrap: wrap;
+
+            gap: 12px;
         }
 
-        .contact-links a {
-            color: white;
-            border: 1px solid #9aafa3;
-            padding: 11px 20px;
+        .contact-btn {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            border: 1px solid #8ca99b;
+
             border-radius: 25px;
-            text-decoration: none;
+
+            color: white;
+
             font-size: 14px;
+
+            transition: 0.3s;
         }
 
-        .contact-links a:hover {
-            background: #ffffff;
-            color: #183b2e;
+        .contact-btn:hover {
+            background: white;
+
+            color: #173d2f;
         }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            text-align: center;
-            padding: 25px;
             background: #102b21;
-            color: #aebdb5;
-            font-size: 13px;
+
+            color: #9eaea6;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 12px;
         }
 
-        /* MOBILE */
-        @media (max-width: 700px) {
-            nav {
-                padding: 15px 5%;
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .container {
+                width: 88%;
             }
 
-            nav ul {
+            .nav-links {
                 display: none;
             }
 
             .hero {
-                padding: 70px 6%;
                 min-height: 80vh;
             }
 
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
             section {
-                padding: 70px 6%;
+                padding: 75px 0;
             }
 
             .section-title {
-                font-size: 32px;
+                font-size: 34px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">CK.</div>
 
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <div class="container nav-container">
+
+        <a href="#" class="logo">CK.</a>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
-    </nav>
+
+    </div>
+
+</nav>
 
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
 
-            <div class="eyebrow">Data • GIS • Analytics</div>
+<!-- =========================
+     HERO
+========================= -->
 
-            <h1>Charity Kabui</h1>
+<header class="hero">
 
-            <h2>Data Analyst & Geospatial Data Professional</h2>
+    <div class="container hero-content">
 
-            <p>
-                I transform data into meaningful insights, visualizations,
-                and location-based solutions that support better decisions.
-            </p>
+        <div class="eyebrow">
+            Data • GIS • Analytics
+        </div>
 
-            <div class="buttons">
-                <a href="#projects" class="btn btn-primary">
-                    View My Work
-                </a>
+        <h1>
+            Charity<br>
+            Kabui.
+        </h1>
 
-                <a href="#contact" class="btn btn-secondary">
-                    Let's Connect
-                </a>
+        <h2>
+            Data Analyst & Geospatial Data Professional
+        </h2>
+
+        <p class="hero-description">
+            I turn data into meaningful insights, visualizations,
+            and geospatial solutions that support better decisions
+            and solve real-world problems.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                Explore My Work →
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Let's Connect
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="section-number">
+            01 — About Me
+        </div>
+
+        <div class="about-grid">
+
+            <div>
+
+                <h2 class="section-title">
+                    Data with<br>
+                    purpose.
+                </h2>
+
+            </div>
+
+
+            <div>
+
+                <p class="about-intro">
+                    I enjoy turning complex data into information
+                    that people can actually understand and use.
+                </p>
+
+                <br>
+
+                <p class="about-text">
+                    I am a <span class="highlight">
+                    Geomatics Engineering and Geospatial Information
+                    Systems graduate</span> with a growing focus on
+                    data analytics, data science and geospatial
+                    intelligence.
+                </p>
+
+                <p class="about-text">
+                    My work sits at the intersection of data,
+                    technology and location. I enjoy exploring
+                    datasets, identifying patterns, creating
+                    visualizations and using spatial analysis to
+                    understand real-world problems.
+                </p>
+
+                <p class="about-text">
+                    I am particularly interested in opportunities
+                    where data can be transformed into practical
+                    insights for organizations, communities and
+                    decision-makers.
+                </p>
+
             </div>
 
         </div>
-    </section>
+
+    </div>
+
+</section>
 
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
 
-        <div class="section-label">01 — About Me</div>
+<!-- =========================
+     SKILLS
+========================= -->
 
-        <h2 class="section-title">Turning data into insight.</h2>
+<section id="skills">
 
-        <p class="about-text">
-            I am a Geomatics Engineering and Geospatial Information Systems
-            graduate with a growing focus on data analytics and data science.
-            I enjoy working with data to uncover patterns, communicate insights
-            through visualizations, and solve real-world problems using both
-            analytical and geospatial approaches.
-        </p>
+    <div class="container">
 
-    </section>
+        <div class="section-number">
+            02 — What I Do
+        </div>
 
+        <h2 class="section-title">
+            My toolkit.
+        </h2>
 
-    <!-- SKILLS -->
-    <section id="skills">
-
-        <div class="section-label">02 — Skills</div>
-
-        <h2 class="section-title">What I work with</h2>
 
         <div class="skills-grid">
 
-            <div class="skill-card">
-                <h3>Data Analytics</h3>
-                <p>
-                    Excel, Power BI, Tableau, data cleaning,
-                    exploratory data analysis and reporting.
-                </p>
-            </div>
 
             <div class="skill-card">
-                <h3>Programming</h3>
+
+                <div class="skill-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Data Analytics
+                </h3>
+
                 <p>
-                    Python, Pandas, NumPy, GeoPandas,
-                    SQL and data analysis workflows.
+                    Cleaning, exploring, analysing and
+                    visualizing data to uncover patterns
+                    and communicate actionable insights.
                 </p>
+
             </div>
 
-            <div class="skill-card">
-                <h3>GIS & Spatial Data</h3>
-                <p>
-                    ArcGIS, QGIS, PostGIS, GeoJSON,
-                    spatial analysis and mapping.
-                </p>
-            </div>
+
 
             <div class="skill-card">
-                <h3>Data Science</h3>
+
+                <div class="skill-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    GIS & Spatial Analysis
+                </h3>
+
                 <p>
-                    Machine learning fundamentals, predictive
-                    modelling and data-driven problem solving.
+                    Working with geographic data to create
+                    maps, identify spatial patterns and
+                    support location-based decision making.
                 </p>
+
+            </div>
+
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    Data Science
+                </h3>
+
+                <p>
+                    Exploring machine learning, predictive
+                    modelling and data-driven approaches
+                    to real-world problems.
+                </p>
+
             </div>
 
         </div>
 
-    </section>
+
+        <div class="tools">
+
+            <span class="tool">Python</span>
+
+            <span class="tool">SQL</span>
+
+            <span class="tool">Pandas</span>
+
+            <span class="tool">NumPy</span>
+
+            <span class="tool">GeoPandas</span>
+
+            <span class="tool">Power BI</span>
+
+            <span class="tool">Tableau</span>
+
+            <span class="tool">Excel</span>
+
+            <span class="tool">QGIS</span>
+
+            <span class="tool">ArcGIS</span>
+
+            <span class="tool">PostGIS</span>
+
+            <span class="tool">GeoJSON</span>
+
+            <span class="tool">TensorFlow</span>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- PROJECTS -->
-    <section class="projects" id="projects">
 
-        <div class="section-label">03 — Selected Work</div>
+<!-- =========================
+     PROJECTS
+========================= -->
 
-        <h2 class="section-title">Featured Projects</h2>
+<section class="projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-number">
+            03 — Selected Work
+        </div>
+
+        <h2 class="section-title">
+            Projects I've built.
+        </h2>
+
+        <p class="projects-intro">
+            A selection of projects where I've applied data analytics,
+            GIS, programming and data science to explore and solve
+            practical problems.
+        </p>
+
 
         <div class="project-grid">
 
-            <div class="project-card">
-                <div class="project-number">01 / DATA ANALYTICS</div>
 
-                <h3>Exploratory Insurance Data Analysis</h3>
-
-                <p>
-                    An exploratory analysis project focused on understanding
-                    insurance data, identifying patterns and communicating
-                    insights through data analysis and visualization.
-                </p>
-
-                <a href="#" class="project-link">
-                    View Project →
-                </a>
-            </div>
-
+            <!-- PROJECT 1 -->
 
             <div class="project-card">
-                <div class="project-number">02 / GIS & SPATIAL ANALYSIS</div>
 
-                <h3>Community Hotspot Analysis</h3>
+                <div class="project-category">
+                    Data Analytics
+                </div>
 
-                <p>
-                    A geospatial analysis project exploring business and
-                    community patterns using mapping, spatial indexing and
-                    hotspot analysis.
-                </p>
-
-                <a href="#" class="project-link">
-                    View Project →
-                </a>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-number">03 / MACHINE LEARNING</div>
-
-                <h3>Mama Mboga Credit Score Model</h3>
+                <h3>
+                    Exploratory Insurance Data Analysis
+                </h3>
 
                 <p>
-                    A data science project exploring how alternative data
-                    can be used to support credit scoring and financial
+                    An exploratory analysis of insurance data to
+                    understand patterns, relationships and key
+                    insights that can support better business
                     decision-making.
                 </p>
 
+                <div class="project-tools">
+
+                    <span class="project-tool">Python</span>
+
+                    <span class="project-tool">Pandas</span>
+
+                    <span class="project-tool">Data Analysis</span>
+
+                    <span class="project-tool">Visualization</span>
+
+                </div>
+
                 <a href="#" class="project-link">
                     View Project →
                 </a>
+
             </div>
 
+
+
+            <!-- PROJECT 2 -->
 
             <div class="project-card">
-                <div class="project-number">04 / TECHNOLOGY</div>
 
-                <h3>WasteLink</h3>
+                <div class="project-category">
+                    GIS & Spatial Analysis
+                </div>
+
+                <h3>
+                    Community Hotspot Analysis
+                </h3>
 
                 <p>
-                    A technology concept focused on connecting waste
-                    management needs with data-driven solutions.
+                    A geospatial analysis exploring patterns in
+                    community and business activity using spatial
+                    indexing, mapping and hotspot analysis.
                 </p>
+
+                <div class="project-tools">
+
+                    <span class="project-tool">Python</span>
+
+                    <span class="project-tool">GeoPandas</span>
+
+                    <span class="project-tool">H3</span>
+
+                    <span class="project-tool">GIS</span>
+
+                </div>
 
                 <a href="#" class="project-link">
                     View Project →
                 </a>
+
             </div>
 
+
+
+            <!-- PROJECT 3 -->
 
             <div class="project-card">
-                <div class="project-number">05 / AI & DATA</div>
 
-                <h3>Aquaguard AI</h3>
+                <div class="project-category">
+                    Machine Learning
+                </div>
+
+                <h3>
+                    Mama Mboga Credit Score Model
+                </h3>
 
                 <p>
-                    An AI-focused project exploring how data and technology
-                    can support smarter water-related decision making.
+                    A data science project exploring alternative
+                    approaches to credit scoring and financial
+                    decision-making for small businesses.
                 </p>
+
+                <div class="project-tools">
+
+                    <span class="project-tool">Python</span>
+
+                    <span class="project-tool">Machine Learning</span>
+
+                    <span class="project-tool">Data Science</span>
+
+                </div>
 
                 <a href="#" class="project-link">
                     View Project →
                 </a>
+
+            </div>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project-card">
+
+                <div class="project-category">
+                    Technology
+                </div>
+
+                <h3>
+                    WasteLink
+                </h3>
+
+                <p>
+                    A technology concept designed around smarter
+                    waste management and connecting waste-related
+                    needs with practical digital solutions.
+                </p>
+
+                <div class="project-tools">
+
+                    <span class="project-tool">Data</span>
+
+                    <span class="project-tool">Technology</span>
+
+                    <span class="project-tool">Problem Solving</span>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="project-card">
+
+                <div class="project-category">
+                    AI & Data
+                </div>
+
+                <h3>
+                    Aquaguard AI
+                </h3>
+
+                <p>
+                    An AI-focused project exploring how data and
+                    technology can contribute to smarter water
+                    management and decision-making.
+                </p>
+
+                <div class="project-tools">
+
+                    <span class="project-tool">AI</span>
+
+                    <span class="project-tool">Python</span>
+
+                    <span class="project-tool">Data</span>
+
+                </div>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
 
-        <div class="section-label">04 — Experience</div>
+<!-- =========================
+     EXPERIENCE
+========================= -->
 
-        <h2 class="section-title">Where I've worked</h2>
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-number">
+            04 — Experience
+        </div>
+
+        <h2 class="section-title">
+            Experience.
+        </h2>
 
 
-        <div class="experience-item">
+        <div class="timeline">
 
-            <h3>Data Intern</h3>
 
-            <div class="company">
-                Govan / OurCode
+            <div class="experience">
+
+                <div class="experience-date">
+                    2026
+                </div>
+
+                <h3>
+                    Data Intern
+                </h3>
+
+                <div class="experience-company">
+                    Govan / OurCode
+                </div>
+
+                <p>
+                    Worked on data and geospatial analysis,
+                    including mapping and hotspot analysis
+                    to support community and business visibility.
+                </p>
+
             </div>
 
-            <p>
-                Worked on data and geospatial analysis, including mapping,
-                spatial insights and hotspot analysis to support community
-                and business visibility.
-            </p>
+
+
+            <div class="experience">
+
+                <div class="experience-date">
+                    2026
+                </div>
+
+                <h3>
+                    Assistant Field Officer
+                </h3>
+
+                <div class="experience-company">
+                    KEPSA
+                </div>
+
+                <p>
+                    Conducted field verification and collected
+                    business information while contributing to
+                    accurate and reliable datasets.
+                </p>
+
+            </div>
+
+
+
+            <div class="experience">
+
+                <div class="experience-date">
+                    Previous Experience
+                </div>
+
+                <h3>
+                    Land Surveyor
+                </h3>
+
+                <div class="experience-company">
+                    Ubuntu Geodigital Technologies
+                </div>
+
+                <p>
+                    Applied surveying and geospatial techniques
+                    in land-related projects, field data collection
+                    and spatial workflows.
+                </p>
+
+            </div>
 
         </div>
 
+    </div>
 
-        <div class="experience-item">
+</section>
 
-            <h3>Assistant Field Officer</h3>
 
-            <div class="company">
-                KEPSA
+
+<!-- =========================
+     CERTIFICATIONS
+========================= -->
+
+<section class="certifications">
+
+    <div class="container">
+
+        <div class="section-number">
+            05 — Learning
+        </div>
+
+        <h2 class="section-title">
+            Certifications & Training.
+        </h2>
+
+
+        <div class="cert-grid">
+
+
+            <div class="cert">
+
+                <h3>
+                    Google Data Analytics
+                </h3>
+
+                <p>
+                    Coursera
+                </p>
+
             </div>
 
-            <p>
-                Conducted field verification and collected business-related
-                information, contributing to accurate and reliable datasets.
-            </p>
+
+
+            <div class="cert">
+
+                <h3>
+                    Tech4Dev Fellowship
+                </h3>
+
+                <p>
+                    Data Science & Engineering · Class of 2026
+                </p>
+
+            </div>
+
+
+
+            <div class="cert">
+
+                <h3>
+                    Women Techsters Fellowship
+                </h3>
+
+                <p>
+                    Excel & Power BI
+                </p>
+
+            </div>
+
+
+
+            <div class="cert">
+
+                <h3>
+                    Cisco Data Analytics
+                </h3>
+
+                <p>
+                    Introduction to Data Analytics
+                </p>
+
+            </div>
+
+
+
+            <div class="cert">
+
+                <h3>
+                    Cisco AI Fundamentals
+                </h3>
+
+                <p>
+                    Artificial Intelligence Fundamentals
+                </p>
+
+            </div>
+
+
+
+            <div class="cert">
+
+                <h3>
+                    Project Management
+                </h3>
+
+                <p>
+                    Professional development training
+                </p>
+
+            </div>
 
         </div>
 
+    </div>
 
-        <div class="experience-item">
+</section>
 
-            <h3>Land Surveyor</h3>
 
-            <div class="company">
-                Ubuntu Geodigital Technologies
-            </div>
 
-            <p>
-                Applied surveying and geospatial techniques in land-related
-                projects and field data collection.
-            </p>
+<!-- =========================
+     CONTACT
+========================= -->
 
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-number">
+            06 — Contact
         </div>
 
-    </section>
+        <h2 class="section-title">
+            Let's connect.
+        </h2>
 
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-
-        <div class="section-label">05 — Contact</div>
-
-        <h2 class="section-title">Let's connect.</h2>
-
-        <p>
-            Interested in working together, discussing a data project,
-            or simply connecting? I'd love to hear from you.
+        <p class="contact-text">
+            Whether you're looking to collaborate on a data project,
+            discuss an opportunity, or simply connect, I'd be happy
+            to hear from you.
         </p>
 
-        <div class="contact-links">
 
-            <a href="mailto:YOUR_EMAIL@example.com">
+        <div class="contact-buttons">
+
+            <a
+                href="mailto:charitykabui254@gmail.com"
+                class="contact-btn"
+            >
                 Email Me
             </a>
 
-            <a href="https://github.com/kabui-charity" target="_blank">
-                GitHub
+
+            <a
+                href="https://www.linkedin.com/in/charitykabui"
+                target="_blank"
+                class="contact-btn"
+            >
+                LinkedIn
             </a>
 
-            <a href="YOUR_LINKEDIN_URL" target="_blank">
-                LinkedIn
+
+            <a
+                href="https://github.com/kabui-charity"
+                target="_blank"
+                class="contact-btn"
+            >
+                GitHub
             </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Charity Kabui · Built with HTML & CSS
-    </footer>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Charity Kabui · Data, GIS & Analytics
+
+</footer>
+
 
 </body>
 </html>
