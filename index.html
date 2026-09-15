@@ -170,12 +170,13 @@ nav{
 .hero h1{
   font-family: var(--display);
   font-weight: 700;
-  font-size: clamp(48px, 7.4vw, 84px);
-  line-height: 0.98;
-  letter-spacing: -2px;
+  font-size: clamp(36px, 5.6vw, 66px);
+  line-height: 1;
+  letter-spacing: -1.5px;
   color: var(--ink);
   margin-bottom: 22px;
   opacity: 0;
+  white-space: nowrap;
   animation: rise 0.8s ease forwards 0.1s;
 }
 .hero h2{
@@ -317,13 +318,13 @@ nav{
 }
 .project-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 1px;
   background: var(--paper-line);
   border: 1px solid var(--paper-line);
 }
 .project-card{
-  padding: 34px;
+  padding: 40px 44px;
   background: var(--card);
   transition: background 0.2s ease;
 }
@@ -338,8 +339,34 @@ nav{
   font-family: var(--display);
   font-weight: 600;
   color: var(--ink);
-  font-size: 21px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.project-framing{
+  color: var(--teal);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: var(--body);
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+.case-block{
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+  margin-bottom: 14px;
+  max-width: 680px;
+}
+.case-label{
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  padding-top: 2px;
+}
+.case-block p{
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  margin: 0;
 }
 .project-card p{
   color: var(--ink-soft);
@@ -422,7 +449,7 @@ nav{
 .certifications{ background: var(--card); border-top: 1px solid var(--paper-line); }
 .cert-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--paper-line);
   border: 1px solid var(--paper-line);
@@ -512,10 +539,14 @@ footer{
   .hero-art{ height: 260px; order: -1; }
   .about-grid{ grid-template-columns: 1fr; gap: 26px; }
   .skills-grid{ grid-template-columns: 1fr; }
-  .project-grid{ grid-template-columns: 1fr; }
   .cert-grid{ grid-template-columns: 1fr; }
+  .project-card{ padding: 30px 24px; }
+  .case-block{ grid-template-columns: 1fr; gap: 4px; }
   .contact-grid{ grid-template-columns: 1fr; gap: 36px; }
   section{ padding: 68px 0; }
+}
+@media (max-width: 380px){
+  .hero h1{ font-size: 30px; white-space: normal; }
 }
 </style>
 </head>
@@ -538,11 +569,11 @@ footer{
   <div class="container hero-grid">
     <div>
       <div class="coord-tag">1°17'S, 36°49'E — Nairobi, Kenya</div>
-      <h1>Charity<br>Kabui.</h1>
+      <h1>Charity Kabui.</h1>
       <h2>Data Analyst &amp; Geospatial Information Systems Professional</h2>
       <p class="hero-description">
         I turn raw data and spatial records into maps, models and
-        insight that hold up under real decisions — for
+        insight that hold up under real decisions for
         organisations, communities and the people who plan for them.
       </p>
       <div class="hero-buttons">
@@ -590,30 +621,21 @@ footer{
   <div class="container about-grid">
     <div>
       <div class="tag">field note — about</div>
-      <h2 class="section-title">Data, read like terrain.</h2>
+      <h2 class="section-title">Where the numbers become a decision.</h2>
     </div>
     <div>
       <p class="about-intro">
-        I enjoy turning complex data into information people can
-        actually understand, act on, and trust.
+        I turn business data into decisions about where the money
+        is, where the growth is, and where the risk sits.
       </p>
       <br>
       <p class="about-text">
-        I'm a <span class="highlight">Geomatics Engineering and Geospatial Information Systems graduate</span>
-        with a growing focus on data analytics, data science and
-        geospatial intelligence.
-      </p>
-      <p class="about-text">
-        My work sits at the intersection of data, technology and
-        location. I explore datasets, identify patterns, build
-        visualisations, and use spatial analysis to understand
-        real-world problems — the same instincts a surveyor uses to
-        read a landscape, applied to spreadsheets and shapefiles alike.
-      </p>
-      <p class="about-text">
-        I'm especially interested in roles where data becomes a
-        practical decision tool for organisations, communities and
-        the people planning around them.
+        I'm a <span class="highlight">Geomatics Engineering graduate</span>
+        who moved into analytics because the skill is the same:
+        reading for what's true beneath the surface. Today that means
+        building the models, dashboards and maps that tell a business
+        who's a credit risk, where growth is hiding, and which
+        numbers are quietly signalling trouble.
       </p>
     </div>
   </div>
@@ -683,65 +705,73 @@ footer{
     <div class="tag">field note — projects</div>
     <h2 class="section-title">Work I've built.</h2>
     <p class="projects-intro">
-      A selection of projects applying data analytics, GIS,
-      programming and data science to practical problems.
+      Three case studies where data drove a call on money, growth or risk.
     </p>
 
     <div class="project-grid">
 
       <div class="project-card">
-        <div class="project-category">Data Analytics</div>
-        <h3>Exploratory Insurance Data Analysis</h3>
-        <p>An exploratory analysis of insurance data to understand patterns, relationships and key insights that support better business decisions.</p>
+        <div class="project-category">Operational Risk &amp; Root Cause Analysis</div>
+        <h3>Manufacturing Downtime Root Cause Analysis</h3>
+        <p class="project-framing">Tracing recurring losses on a Kenyan production floor back to their actual driver.</p>
+
+        <div class="case-block">
+          <div class="case-label">Problem</div>
+          <p>Unplanned downtime and recurring defects quietly erode a manufacturer's margins, but without root cause analysis, teams tend to treat symptoms instead of what's actually driving the losses.</p>
+        </div>
+        <div class="case-block">
+          <div class="case-label">Approach</div>
+          <p>Used Python to analyse production and operations data from a Kenyan manufacturing context, isolating the recurring root causes behind downtime and defect rates rather than just reporting the numbers.</p>
+        </div>
+
         <div class="project-tools">
           <span class="project-tool">Python</span>
-          <span class="project-tool">Pandas</span>
-          <span class="project-tool">Visualization</span>
+          <span class="project-tool">Root Cause Analysis</span>
+          <span class="project-tool">Operations Data</span>
         </div>
-        <a href="https://github.com/kabui-charity/-Exploratory-data-analysis.git" class="project-link" target="_blank">View project</a>
+        <span class="project-pending">write-up in progress</span>
       </div>
 
       <div class="project-card">
-        <div class="project-category">GIS &amp; Spatial Analysis</div>
+        <div class="project-category">Credit Risk &amp; Fraud Analysis</div>
+        <h3>Wekeza Analytics — Kenya Fintech BI Suite</h3>
+        <p class="project-framing">Surfacing loan risk and irregular transaction activity across a fintech's lending and payment channels.</p>
+
+        <div class="case-block">
+          <div class="case-label">Problem</div>
+          <p>A fintech operating across mobile money, agency banking and digital lending needed visibility into which loans were turning risky and which transaction patterns looked irregular, before either became a loss.</p>
+        </div>
+        <div class="case-block">
+          <div class="case-label">Approach</div>
+          <p>Built a Tableau BI suite on a seven-table relational dataset, with a loan risk view tracking default rate, portfolio at risk and days-late by segment and county, alongside transaction and channel views built to surface unusual activity.</p>
+        </div>
+
+        <div class="project-tools">
+          <span class="project-tool">Tableau</span>
+          <span class="project-tool">SQL</span>
+          <span class="project-tool">Credit Risk Analysis</span>
+        </div>
+        <span class="project-pending">dashboard build in progress</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-category">GIS &amp; Market Growth</div>
         <h3>Community Hotspot Analysis</h3>
-        <p>A geospatial analysis exploring patterns in community and business activity using spatial indexing, mapping and hotspot analysis.</p>
+        <p class="project-framing">Mapping where business activity clusters, to point growth in the right direction.</p>
+
+        <div class="case-block">
+          <div class="case-label">Problem</div>
+          <p>Decisions about where to expand, place a branch or target a service are often made on instinct rather than evidence of where activity is actually concentrated.</p>
+        </div>
+        <div class="case-block">
+          <div class="case-label">Approach</div>
+          <p>Used spatial indexing and hotspot analysis on community and business-activity data to surface where activity clusters, turning a map into a growth and site-selection tool.</p>
+        </div>
+
         <div class="project-tools">
           <span class="project-tool">Python</span>
           <span class="project-tool">GeoPandas</span>
           <span class="project-tool">H3</span>
-        </div>
-        <span class="project-pending">write-up in progress</span>
-      </div>
-
-      <div class="project-card">
-        <div class="project-category">Machine Learning</div>
-        <h3>Mama Mboga Credit Score Model</h3>
-        <p>A data science project exploring alternative approaches to credit scoring and financial decision-making for small businesses.</p>
-        <div class="project-tools">
-          <span class="project-tool">Python</span>
-          <span class="project-tool">Machine Learning</span>
-        </div>
-        <span class="project-pending">write-up in progress</span>
-      </div>
-
-      <div class="project-card">
-        <div class="project-category">Technology</div>
-        <h3>WasteLink</h3>
-        <p>A technology concept designed around smarter waste management and connecting waste-related needs with practical digital solutions.</p>
-        <div class="project-tools">
-          <span class="project-tool">Data</span>
-          <span class="project-tool">Product Thinking</span>
-        </div>
-        <span class="project-pending">write-up in progress</span>
-      </div>
-
-      <div class="project-card">
-        <div class="project-category">AI &amp; Data</div>
-        <h3>Aquaguard AI</h3>
-        <p>An AI-focused project exploring how data and technology can contribute to smarter water management and decision-making.</p>
-        <div class="project-tools">
-          <span class="project-tool">AI</span>
-          <span class="project-tool">Python</span>
         </div>
         <span class="project-pending">write-up in progress</span>
       </div>
@@ -786,12 +816,9 @@ footer{
     <h2 class="section-title">Certifications &amp; training.</h2>
 
     <div class="cert-grid">
-      <div class="cert"><h3>Google Data Analytics</h3><p>Coursera</p></div>
-      <div class="cert"><h3>Tech4Dev Fellowship</h3><p>Data Science &amp; Engineering · Class of 2026</p></div>
       <div class="cert"><h3>Women Techsters Fellowship</h3><p>Excel &amp; Power BI</p></div>
-      <div class="cert"><h3>Cisco Data Analytics</h3><p>Introduction to Data Analytics</p></div>
-      <div class="cert"><h3>Cisco AI Fundamentals</h3><p>Artificial Intelligence Fundamentals</p></div>
-      <div class="cert"><h3>Project Management</h3><p>Professional development training</p></div>
+      <div class="cert"><h3>Google Data Analytics</h3><p>Coursera</p></div>
+      <div class="cert"><h3>Google Business Intelligence</h3><p>Coursera</p></div>
     </div>
   </div>
 </section>
